@@ -669,6 +669,17 @@ func validateStoreOpenstackForCmpctJob(instance *druidv1alpha1.Etcd, j *batchv1.
 										})),
 									})),
 								}),
+								"OS_REGION_NAME": MatchFields(IgnoreExtras, Fields{
+									"Name": Equal("OS_REGION_NAME"),
+									"ValueFrom": PointTo(MatchFields(IgnoreExtras, Fields{
+										"SecretKeyRef": PointTo(MatchFields(IgnoreExtras, Fields{
+											"LocalObjectReference": MatchFields(IgnoreExtras, Fields{
+												"Name": Equal(instance.Spec.Backup.Store.SecretRef.Name),
+											}),
+											"Key": Equal("region"),
+										})),
+									})),
+								}),
 								"OS_USERNAME": MatchFields(IgnoreExtras, Fields{
 									"Name": Equal("OS_USERNAME"),
 									"ValueFrom": PointTo(MatchFields(IgnoreExtras, Fields{

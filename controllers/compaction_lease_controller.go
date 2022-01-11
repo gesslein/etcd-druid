@@ -427,6 +427,7 @@ func getCmpctJobEnvVar(etcd *druidv1alpha1.Etcd, logger logr.Logger) []v1.EnvVar
 
 	if provider == "Swift" {
 		env = append(env, getEnvVarFromSecrets("OS_AUTH_URL", storeValues.SecretRef.Name, "authURL"))
+		env = append(env, getEnvVarFromSecrets("OS_REGION_NAME", storeValues.SecretRef.Name, "region"))
 		env = append(env, getEnvVarFromSecrets("OS_DOMAIN_NAME", storeValues.SecretRef.Name, "domainName"))
 		env = append(env, getEnvVarFromSecrets("OS_USERNAME", storeValues.SecretRef.Name, "username"))
 		env = append(env, getEnvVarFromSecrets("OS_PASSWORD", storeValues.SecretRef.Name, "password"))

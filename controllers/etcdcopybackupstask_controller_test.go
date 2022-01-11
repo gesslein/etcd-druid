@@ -350,6 +350,7 @@ func getProviderEnvElements(storeProvider, prefix, volumePrefix string, store *d
 	case "Swift":
 		return Elements{
 			prefix + "OS_AUTH_URL":    matchEnvValueFrom(prefix+"OS_AUTH_URL", store, "authURL"),
+			prefix + "OS_REGION_NAME": matchEnvValueFrom(prefix+"OS_REGION_NAME", store, "region"),
 			prefix + "OS_DOMAIN_NAME": matchEnvValueFrom(prefix+"OS_DOMAIN_NAME", store, "domainName"),
 			prefix + "OS_USERNAME":    matchEnvValueFrom(prefix+"OS_USERNAME", store, "username"),
 			prefix + "OS_PASSWORD":    matchEnvValueFrom(prefix+"OS_PASSWORD", store, "password"),

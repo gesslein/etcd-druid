@@ -111,6 +111,11 @@ spec:
             secretKeyRef:
               name: {{ .Values.targetStore.storeSecret }}
               key: "authURL"
+        - name: OS_REGION_NAME
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.store.storeSecret }}
+              key: "region"
         - name: "OS_DOMAIN_NAME"
           valueFrom:
             secretKeyRef:
@@ -184,6 +189,11 @@ spec:
             secretKeyRef:
               name: {{ .Values.sourceStore.storeSecret }}
               key: "authURL"
+        - name: SOURCE_OS_REGION_NAME
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.sourceStore.storeSecret }}
+              key: "region"
         - name: "SOURCE_OS_DOMAIN_NAME"
           valueFrom:
             secretKeyRef:
